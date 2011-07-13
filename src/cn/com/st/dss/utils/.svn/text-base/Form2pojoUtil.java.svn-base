@@ -1,0 +1,239 @@
+package cn.com.st.dss.utils;
+
+import java.io.UnsupportedEncodingException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.Date;
+import java.util.HashMap;
+
+
+import javax.servlet.http.HttpServletRequest;
+
+ 
+
+/*
+ * 使用此工具类有个前提，即javabean中的属性和hashmap或httpservletrequest中的表单名称必须一致
+ * 
+ * javabean的属性必须是小写开头，否则系统不予处理-------尽可能符合java编程规范
+ * 
+ */
+public class Form2pojoUtil { 
+
+	// 把hashmap放到javabean中
+	public static void transferHashMap2pojo(Object pojo, HashMap map) {
+		// 获得源类
+		Class clazz = pojo.getClass();
+		// 获得所有方法
+		Method method[] = clazz.getDeclaredMethods();
+		for (int i = 0; i < method.length; i++) {
+			String name = method[i].getName();
+			// 筛选该类中以set开头的方法
+			if (name.startsWith("set")) {
+				// 获得该方法的参数类型
+				Class[] cc = method[i].getParameterTypes();
+				// 如果它只有一个参数的话，其实javabean也只有一个参数，此处是可以扩展的
+				if (cc.length == 1) {
+					// 获得参数类型名
+					String type = cc[0].getName();
+					try {
+						// 获得属性名
+						String prop = name.charAt(3) + name.substring(4);
+
+						System.out.println(prop);
+						// 获得参数值，去hashmap中按键值取
+						String param = map.get(prop).toString();
+						// 不同的参数类型，调用不同的方法---------原因：参数类型不同，无更简便方法
+						if (param != null && !param.equals("")) {
+							// method.setAccessible(true);
+							if (type.equals("java.lang.String")) {
+								method[i].invoke(pojo, new Object[] { param });
+							} else if (type.equals("int")
+									|| type.equals("java.lang.Integer")) {
+								method[i].invoke(pojo,
+										new Object[] { new Integer(param) });
+							} else if (type.equals("long")
+									|| type.equals("java.lang.Long")) {
+								method[i].invoke(pojo, new Object[] { new Long(
+										param) });
+							} else if (type.equals("boolean")
+									|| type.equals("java.lang.Boolean")) {
+								method[i].invoke(pojo, new Object[] { Boolean
+										.valueOf(param) });
+							} else if (type.equals("java.util.Date")) {
+								// 暂时没想好怎么处理
+								Date date = null;// DateUtil.parseDateTime(param);
+								if (date != null)
+									method[i].invoke(pojo,
+											new Object[] { date });
+							}
+						}
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+	// 把httprequest放到javabean中
+	public static void transferRequest2pojo(Object pojo,
+			HttpServletRequest request) {
+		// 执行transferRequest2pojo(Object pojo, HttpServletRequest request)方法
+ 
+		// 获得源类
+		Class clazz = pojo.getClass();
+		// 获得所有方法
+		Method method[] = clazz.getDeclaredMethods();
+		for (int i = 0; i < method.length; i++) {
+			String name = method[i].getName();
+			// 筛选该类中以set开头的方法
+			if (name.startsWith("set")) {
+				// 获得该方法的参数类型
+				Class[] cc = method[i].getParameterTypes();
+				// 如果它只有一个参数的话，其实javabean也只有一个参数，此处是可以扩展的
+				if (cc.length == 1) {
+					// 获得参数类型名
+					String type = cc[0].getName();
+					// try {
+					// 获得属性名
+					String prop = Character.toLowerCase(name.charAt(3))
+							+ name.substring(4);
+					//System.out.println("set"+prop);
+					// 获得参数值，去hashmap中按键值取
+					String param = "";
+					if (request.getParameter(prop) != null) {
+						
+						//String n  = new String(request.getParameter("name").getBytes("iso8859-1"),"utf-8");
+					
+						//param = request.getParameter(prop);
+						try {//|解决乱码问题
+							param = new String(request.getParameter(prop).getBytes("iso8859-1"),"utf-8");
+						} catch (UnsupportedEncodingException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+					// 不同的参数类型，调用不同的方法---------原因：参数类型不同，无更简便方法
+					if (param != null && !param.equals("")) {
+						// 参数为空的时候应回避异常的---------表单中的字段一般不是一个pojo里的字段---------这只是考虑的多了点
+						try {
+							if (type.equals("java.lang.String")) {
+								method[i].invoke(pojo, new Object[] { param });
+							} else if (type.equals("int")
+									|| type.equals("java.lang.Integer")) {
+								method[i].invoke(pojo,
+										new Object[] { new Integer(param) });
+							} else if (type.equals("float")
+									|| type.equals("java.lang.Float")) {
+								method[i].invoke(pojo,
+										new Object[] { new Float(param) });
+							} else if (type.equals("double")
+									|| type.equals("java.lang.Double")) {
+								method[i].invoke(pojo,
+										new Object[] { new Double(param) });
+							} else if (type.equals("char")
+									|| type.equals("java.lang.Char")) {
+								method[i].invoke(pojo, new Object[] { param
+										.toCharArray() });
+							} else if (type.equals("short")
+									|| type.equals("java.lang.Short")) {
+								method[i].invoke(pojo,
+										new Object[] { new Short(param) });
+							} else if (type.equals("long")
+									|| type.equals("java.lang.Long")) {
+								method[i].invoke(pojo, new Object[] { new Long(
+										param) });
+							} else if (type.equals("boolean")
+									|| type.equals("java.lang.Boolean")) {
+								method[i].invoke(pojo, new Object[] { Boolean
+										.valueOf(param) });
+							} else if (type.equals("java.util.Date")) {
+								// 暂时没想好怎么处理
+								Date date = null;// DateUtil.parseDateTime(param);
+								if (date != null)
+									method[i].invoke(pojo,
+											new Object[] { date });
+							} else {
+								System.out.println("该字段不在此对象中");
+							}
+						} catch (IllegalArgumentException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (IllegalAccessException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (InvocationTargetException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (Exception e) {
+							System.out.println("该字段不在此对象中");
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	/*
+	 * 用于测试的，打印出javabean中的所有属性对应的值
+	 */
+
+	public static void dumpPojo(Object pojo) {
+		//用于接收get方法的返回值的
+		Object obj = null;
+		// 获得源类
+		Class clazz = pojo.getClass();
+		// 获得所有方法
+		java.lang.reflect.Field field[] = clazz.getDeclaredFields();
+		Method method[] = clazz.getDeclaredMethods();
+		for (int i = 0; i < method.length; i++) {
+			String name = method[i].getName();
+			// 筛选该类中以get开头的方法
+
+			if (name.startsWith("get")) {
+				// 获得该方法的参数类型
+				String prop = name.charAt(3) + name.substring(4);
+				//	System.out.println(prop);
+				//拼装出字段对应的get方法
+				try {
+					method[i] = clazz.getMethod("get" + prop, null);
+				} catch (SecurityException e) {
+					e.printStackTrace();
+				} catch (NoSuchMethodException e) {
+					e.printStackTrace();
+				}
+				//如果metd不为空，执行方法获得值
+				if (method[i] != null) {
+					try {
+						obj = method[i].invoke(pojo, null);
+						System.out.println(prop + "当前值=" + obj);
+					} catch (IllegalArgumentException e) {
+						e.printStackTrace();
+					} catch (IllegalAccessException e) {
+						e.printStackTrace();
+					} catch (InvocationTargetException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+//		HashMap map = new HashMap();
+//		map.put("id", 2);
+//		map.put("name", "sang");
+//
+//		Pojo p = new Pojo();
+//		transferHashMap2pojo(p, map);
+//		System.out.println(p.getName());
+//		System.out.println("===================================");
+//		dumpPojo(p);
+
+	}
+
+}

@@ -1,0 +1,66 @@
+package cn.com.st.dss.utils;
+
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+
+import org.hsqldb.Server;
+
+/**
+ * @author toshiba
+ *
+ */
+public class HsqldbListner implements ServletContextListener {
+	
+	// 数据库名称
+	public final static String DATABASE_NAME = "reportdb";
+	// 数据库路径
+	public final static String DATABASE_PATH = "db";
+	// 数据库端口缺省为9001
+	public final static int PORT = 9001;
+	// 数据库服务
+	public final static Server server = new Server();
+	
+	
+
+	/* (non-Javadoc)
+	 * @see javax.servlet.ServletContextListener#contextDestroyed(javax.servlet.ServletContextEvent)
+	 */
+	@Override
+	public void contextDestroyed(ServletContextEvent arg0) {
+		// TODO Auto-generated method stub
+		// 结束数据库服务
+		server.stop();
+
+		System.out.println("数据库服务已结束");
+		try {
+			Thread.sleep(800);
+		} catch (InterruptedException e) {
+		}
+
+	}
+
+	/* (non-Javadoc)
+	 * @see javax.servlet.ServletContextListener#contextInitialized(javax.servlet.ServletContextEvent)
+	 */
+	@Override
+	public void contextInitialized(ServletContextEvent arg0) {
+		// TODO Auto-generated method stub
+
+
+		server.setDatabaseName(0, DATABASE_NAME);
+		server.setDatabasePath(0, DATABASE_PATH);
+		
+		server.setPort(PORT);
+		server.setSilent(true);
+		// 开始数据库服务
+		server.start();
+
+		System.out.println("数据库服务已启动");
+		try {
+			Thread.sleep(800);
+		} catch (InterruptedException e) {
+		}
+	
+	}
+
+}

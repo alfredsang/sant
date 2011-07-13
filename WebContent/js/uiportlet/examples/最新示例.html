@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<link href="resource/portlet/portlet.css" rel="stylesheet" type="text/css"  media="screen" />
+	<script type="text/javascript" src="../lib/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="../build/release/jquery.dragsort-0.3.10.min.js"></script>
+	<style type="text/css">
+		
+		ul { margin:0px; padding:0px; margin-left:20px; }
+		.placeHolder div { background-color:white !important; border:dashed 1px red !important; }
+				
+		#list1, #list2, #list3 { width:300px; list-style-type:none; margin:0px; }
+		#list1 dl, #list2 dl, #list3 dl {  }
+		#list1 div, #list2 div, #list3 div {}
+		#list3{ float:left; }
+		#list1{ float:left; }
+		#list2{ float:left; }
+	</style>
+</head>
+<body>
+
+<p>portlet examples</p>
+	
+ <ul>
+					<li><dl><div>sdd</div></dl></li>
+					<li><dl><div>sdd</div></dl></li>
+					<li><dl><div>sdd</div></dl></li>
+				  </ul>
+	<br/>
+	<div class="portlet" id="test_portlet">
+				<!-- portlet窗体头部信息 -->
+					<div class="portlet-topper">
+						<span class="portlet-title">
+							说明
+						</span> 
+						<div class="portlet-icons">
+
+						</div>
+						 
+					</div>
+				
+					<!-- portlet窗体内容 -->
+					<div class="portlet-content">
+					   <h4>目前已实现功能:</h4>  
+					    1、点击title可以拖拽,点击按钮可以关闭，最小化，其他需自己实现<br>
+						2、布局通过UL标签控制，如欲改变布局，可以通过js控制dl即可<br>
+						3、目前支持ie6和ff3.6.3，其他未测<br>
+						<br>
+						 TODO:
+						<br>
+						1、根据js控制布局的UL，实现自适应等复杂布局
+						 
+					</div>
+				</div>
+	
+	
+	<ul id="list2">
+	 
+			list1布局
+	
+		<dl>
+			<div>
+				<div class="portlet" id="test_portlet1">
+				<!-- portlet窗体头部信息 -->
+					<div class="portlet-topper">
+						<span class="portlet-title">
+							标题--1
+						</span> 
+						<div class="portlet-icons">
+							<div class="portlet_icon_div portlet_icon_close" id="test_close"  onclick="divshow('test_portlet1')"></div>
+							<div class="portlet_icon_div portlet_icon_config"></div>
+							<div class="portlet_icon_div portlet_icon_option"></div>
+							
+							<div class="portlet_icon_div portlet_icon_min" onclick="divshow('div1');"></div>
+						</div>
+						 
+					</div>
+				
+					<!-- portlet窗体内容 -->
+					<div class="portlet-content" id="div1">
+					 dddddddd<br>
+					 dsfsdfsdf<br>
+					 dsfsdfsdf
+					</div>
+				</div>
+			<div>
+		</dl>		
+		<dl>
+			<div class="portlet" id="test_portlet2">
+			<!-- portlet窗体头部信息 -->
+				<div class="portlet-topper">
+					<span class="portlet-title">
+						标题--2
+					</span> 
+					<div class="portlet-icons">
+						<div class="portlet_icon_div portlet_icon_close" id="test_close"  onclick="divshow('test_portlet2')"></div>
+						<div class="portlet_icon_div portlet_icon_config"></div>
+						<div class="portlet_icon_div portlet_icon_option"></div>
+						
+						<div class="portlet_icon_div portlet_icon_min" onclick="divshow('div2');"></div>
+					</div>			
+				</div>
+				<!-- portlet窗体内容 -->
+				<div class="portlet-content" id="div2">
+				 dddddddd<br>
+				 dsfsdfsdf<br>
+				 dsfsdfsdf
+				</div>
+			</div>
+		</dl>
+		<dl>
+			<div class="portlet" id="test_portlet3">
+			<!-- portlet窗体头部信息 -->
+				<div class="portlet-topper">
+					<span class="portlet-title">
+						标题--3
+					</span> 
+					<div class="portlet-icons">
+						<div class="portlet_icon_div portlet_icon_close" id="test_close"  onclick="divshow('test_portlet3')"></div>
+						<div class="portlet_icon_div portlet_icon_config"></div>
+						<div class="portlet_icon_div portlet_icon_option"></div>
+						
+						<div class="portlet_icon_div portlet_icon_min" onclick="divshow('div3');"></div>
+					</div>			
+				</div>
+			
+				<!-- portlet窗体内容 -->
+				<div class="portlet-content" id="div3">
+				 dddddddd<br>
+				 dsfsdfsdf<br>
+				 dsfsdfsdf
+				</div>
+			</div>
+		</dl>
+				
+	</ul>
+
+	<ul id="list1">
+		<dl>
+		list2布局
+	 
+		</dl>
+		
+		<dl>
+			<div class="portlet" id="test_portlet4" >
+			<!-- portlet窗体头部信息 -->
+				<div class="portlet-topper">
+					<span class="portlet-title">
+						标题--4
+					</span> 
+					<div class="portlet-icons">
+						<div class="portlet_icon_div portlet_icon_close" id="test_close"  onclick="divshow('test_portlet4')"></div>
+						<div class="portlet_icon_div portlet_icon_config"></div>
+						<div class="portlet_icon_div portlet_icon_option"></div>
+						
+						<div class="portlet_icon_div portlet_icon_min" onclick="divshow('div4');"></div>
+					</div>		
+				</div>
+			
+				<!-- portlet窗体内容 -->
+				<div class="portlet-content" id="div4">
+				 dddddddd<br>
+				 dsfsdfsdf<br>
+				 dsfsdfsdf
+				 
+				 <ul>
+					<dl><div>sdd</div></dl>
+					<dl><div>sdd</div></dl>
+					<dl><div>sdd</div></dl>
+				  </ul>
+				</div>
+			</div>
+		</dl>
+		<dl>
+			<div class="portlet" id="test_portlet5" >
+			<!-- portlet窗体头部信息 -->
+				<div class="portlet-topper">
+					<span class="portlet-title">
+						标题--5
+					</span> 
+					<div class="portlet-icons">
+						<div class="portlet_icon_div portlet_icon_close" id="test_close5" onclick="divshow('test_portlet5')"></div>
+						<div class="portlet_icon_div portlet_icon_config"></div>
+						<div class="portlet_icon_div portlet_icon_option"></div>
+						
+						<div class="portlet_icon_div portlet_icon_min" onclick="divshow('div5');"></div>
+					</div>					
+				</div>
+			
+				<!-- portlet窗体内容 -->
+				<div class="portlet-content" id="div5">
+				 dddddddd<br>
+				 dsfsdfsdf<br>
+				 dsfsdfsdf
+				</div>
+			</div>
+		</dl>
+		
+	</ul>
+	
+	<ul  id="list3">
+		<dl>
+			list3布局
+		</dl>	
+		<dl>
+			<div class="portlet" id="test_portlet6" >
+			<!-- portlet窗体头部信息 -->
+				<div class="portlet-topper">
+					<span class="portlet-title">
+						标题--6
+					</span> 
+					<div class="portlet-icons">
+						<div class="portlet_icon_div portlet_icon_close" id="test_close6" onclick="divshow('test_portlet6')"></div>
+						<div class="portlet_icon_div portlet_icon_config" id="icon_config_test_close6" ></div>
+						<div class="portlet_icon_div portlet_icon_option"></div>
+						
+						<div class="portlet_icon_div portlet_icon_min" onclick="divshow('div6');"></div>
+					</div>					
+				</div>
+			
+				<!-- portlet窗体内容 -->
+				<div class="portlet-content" id="div6">
+				 dddddddd<br>
+				 dsfsdfsdf<br>
+				 dsfsdfsdf
+				</div>
+			</div>
+		</dl>
+	</ul>
+	
+ 
+	<!-- save sort order here which can be retrieved on server on postback -->
+	<input name="list1SortOrder" type="hidden" />
+	
+	<script type="text/javascript">
+		$("ul").dragsort({ 
+			dragSelector: ".portlet-title", 
+			dragBetween: true, 
+			dragEnd: saveOrder, 
+			proxyTemplate: "<div style='border: 1px solid red;background: red;height: 58px;width: 158px;'>我是代理，你拽我呢</div>",
+			placeHolderTemplate: "<dl><div style='border: 1px solid red;background: lightgreen;width:100%;height:100%'></div></dl>" 
+		});
+		
+		function saveOrder() {
+			var serialStr = "";
+			$("#list1 dl").each(function(i, elm) { serialStr += (i > 0 ? "|" : "") + $(elm).children().html(); });
+			
+			$("input[name=list1SortOrder]").val(serialStr);
+		};
+		
+		
+ 
+		function divshow(infodiv)
+		{	
+			//alert(infodiv);
+			var a=document.getElementById(infodiv);
+			a.style.display=(a.style.display=="none"?"block":"none");
+			
+		};
+		
+		
+		function clone(sourceId,containerId){
+		    $("#"+sourceId).clone().appendTo($("#"+containerId));
+		}
+		
+		
+		
+		$(".example7").colorbox({width:"80%", height:"80%",
+			onComplete:function(){ 
+				alert('onComplete: colorbox has displayed the loaded content'); 
+			},
+			iframe:true});
+	 
+	</script>
+	
+	<div style="clear:both;"></div>
+	
+</body>
+</html>

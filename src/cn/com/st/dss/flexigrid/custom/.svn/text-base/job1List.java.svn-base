@@ -1,0 +1,43 @@
+package cn.com.st.dss.utils.flexigrid.my;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import cn.com.st.dss.utils.flexigrid.FlexiGridHsqldbTemplete;
+
+import net.sf.json.JSONObject;
+
+public class job1List {
+
+	public job1List(HttpServletRequest request,
+			HttpServletResponse response, String tableName) {
+		//super(request, response, tableName);
+	}
+
+ 
+	public String toJSON(List list, Map pageInfo) {
+		List mapList = new ArrayList();
+		for (int i = 0; i < list.size(); i++) {
+			Map cellMap = new HashMap();
+			cellMap.put("id", ((Map) list.get(i)).get("ID").toString());
+			cellMap.put("cell", new Object[] {
+					// "<input type='checkbox'/>",
+					 ((Map) list.get(i)).get("ID"),  
+	                    ((Map) list.get(i)).get("JOB_NAME"),  
+	                    ((Map) list.get(i)).get("WORK_ADDRESS"),  
+	                    ((Map) list.get(i)).get("SALARY"),  
+	                    ((Map) list.get(i)).get("DATE"),  
+	                    ((Map) list.get(i)).get("LANGUAGE") 
+				 });
+			mapList.add(cellMap);
+		}
+		pageInfo.put("rows", mapList);
+		JSONObject object = new JSONObject(pageInfo);
+		return object.toString();
+	}
+}

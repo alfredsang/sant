@@ -1,0 +1,134 @@
+
+@charset "utf-8";
+/* CSS Document */
+form{
+padding:0;
+margin:0;}
+
+caption{
+background:url(/dss.report.virtual/images/bg_table_caption.jpg) repeat-x;
+height:25px;
+padding-left:10px;
+line-height:25px;
+border-top:1px solid #D7D7D7;
+border-left:1px solid #D7D7D7;
+border-right:1px solid #BFBFBF;
+text-align:left;
+font-size:13px;
+color:#1e619f;
+font-weight:bold;}
+
+caption span{
+background:url(/dss.report.virtual/images/icon_table_caption.gif) no-repeat left center;
+padding-left:18px;}
+
+.tbl_form{
+border-left:1px solid #B1D8EF;
+}
+
+#notitle {
+	border-top:1px solid #B1D8EF;
+}
+#notitle td {
+	text-align: center;
+}
+
+.tbl_form th{
+border-color:#fff transparent #B1D8EF #fff;
+border-style:solid;
+border-width:1px;
+background: url(/dss.report.virtual/images/tbl-th-bg.jpg) 0 0 repeat-x #f0f7fe;
+border-right:none;
+height:18px;
+padding:3px 5px;
+text-align:right;
+font-weight:normal;
+color:#333;
+font-size:12px;
+padding-right:5px;
+white-space:nowrap;
+}
+.tbl_form th span{background:url(/dss.report.virtual/images/icon_th.gif) no-repeat left 3px; padding:0 0 0 15px;}
+.tbl_form th img{display:none}
+
+.tbl_form td{
+border-color:#fff #B1D8EF #B1D8EF #fff;
+border-style:solid;
+border-width:1px;
+background-color:#F8FCFE;
+color:#333;
+font-size:12px;
+height:18px;
+padding:3px 5px;
+white-space:nowrap;
+}
+
+.tbl_form th img{
+margin-right:10px;
+}
+
+.tbl_form td img{
+margin-left:10px;}
+
+.input_text{
+height:18px;
+background: url(/dss.report.virtual/images/input_text.jpg) repeat-x left top #fff;
+border-color:#B7B7B7 #DBDBDB #DBDBDB #B7B7B7;
+border-style:solid;
+border-width:1px;
+margin-left:10px;
+}
+.small_text{
+	height:18px;
+	background: url(/dss.report.virtual/images/input_text.jpg) repeat-x left top #fff;
+	border-color:#B7B7B7 #DBDBDB #DBDBDB #B7B7B7;
+	border-style:solid;
+	border-width:1px;
+	width: 30px;
+}
+.small_text_unuse{
+	height:18px;
+	background: #E0E0E0;
+	border-color:#B7B7B7 #DBDBDB #DBDBDB #B7B7B7;
+	border-style:solid;
+	border-width:1px;
+	width: 30px;
+}
+
+select{
+background:#fff;
+border-color:#B7B7B7 #DBDBDB #DBDBDB #B7B7B7;
+border-style:solid;
+border-width:1px;
+margin-left:10px;}
+
+.tip{
+margin-left:6px;
+font-size:12px;
+color:#f90;}
+
+.tbl_form td img{
+border:none;
+}
+
+.input_button{
+	line-height:22px;
+	height:22px;
+	width:64px;
+	color:#fff;
+	border:none;
+	text-align:center;
+	margin-left:10px;
+	background:url(/dss.report.virtual/images/button_bg.jpg) no-repeat left top;
+}
+
+.panel_button{
+padding-top:10px;
+height:44px;
+background:url(/dss.report.virtual/images/bg_panel_button.jpg) repeat-x left top #dbebf8;
+text-align:center;}
+
+.panel_button .input_button{
+margin-right:10px;}
+
+

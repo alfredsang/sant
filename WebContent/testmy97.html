@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+
+<link href="js/My97DatePicker/skin/WdatePicker.css" rel="stylesheet" type="text/css"> 
+
+ <script language="javascript" type="text/javascript" src="js/My97DatePicker/WdatePicker.js"></script>
+ 
+ <script type="text/javascript">
+
+function pickedFunc(){
+	// alert('dd');
+$dp.$('d523_y').value=$dp.cal.getP('y');
+$dp.$('d523_M').value=$dp.cal.getP('M');
+$dp.$('d523_d').value=$dp.cal.getP('d');
+$dp.$('d523_HH').value=$dp.cal.getP('H');
+$dp.$('d523_mm').value=$dp.cal.getP('m');
+$dp.$('d523_ss').value=$dp.cal.getP('s');
+}
+</script>
+
+
+</head>
+
+<body>
+
+</body>
+</html>
+
+<input type="text" id="d523_y" size="5"/> 年
+<input type="text" id="d523_M" size="3"/> 月
+<input type="text" id="d523_d" size="3"/> 日
+<input type="text" id="d523_HH" size="3"/> 时
+<input type="text" id="d523_mm" size="3"/> 分
+<input type="text" id="d523_ss" size="3"/> 秒 
+<input type="text" id="d523"  size="23"/> 
+<img onclick="WdatePicker({el:'d523',dateFmt:'yyyy-MM-dd HH:mm:ss',onpicked:pickedFunc});" 
+src="js/My97DatePicker/skin/datePicker.gif" width="16" height="22" align="absmiddle" style="cursor:pointer"/>
+
+
+<hr>
+
+ <input id="txtStorageDateStart" runat="server" readonly="readonly"   
+                                        type="text" style="width: 45%" class="Wdate" />
+                                        
+                                        <img onclick="WdatePicker({el:'txtStorageDateStart',dateFmt:'yyyy-MM-dd HH:mm:ss'});" 
+src="js/My97DatePicker/skin/datePicker.gif" width="16" height="22" align="absmiddle" style="cursor:pointer"/>
+                                        
+                                        
+                                        
+                                        

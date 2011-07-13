@@ -1,0 +1,71 @@
+package cn.com.st.dss.utils.flexigrid.my;
+
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import cn.com.st.dss.utils.flexigrid.FlexiGridHsqldbTemplete;
+
+import net.sf.json.JSONObject;
+
+public class WorkspaceList extends FlexiGridHsqldbTemplete{
+	
+	private HttpServletRequest myRequest = null;
+
+	public WorkspaceList(HttpServletRequest request,
+			HttpServletResponse response, String tableName, String[] cellName,String sortname) {
+		super(request, response, tableName,cellName,sortname);
+		
+		this.myRequest=request;
+	}
+
+	@Override
+	public String toJSON(List list, Map pageInfo,String[] cellName,String sortname) {
+		List mapList = new ArrayList();
+		
+//		System.out.println("toJSON:="+list.size());
+	
+		for (int i = 0; i < list.size(); i++) {
+			Map cellMap = new HashMap();
+			Map myRecordMap = (Map) list.get(i);
+			
+			Object[] me = new Object[cellName.length];
+			for (int j = 0; j < cellName.length; j++) {
+				//ȡ����name���ֶ�
+				//ȫ�����ֶ�
+				String cn = "";
+				try {
+					cn = new String(cellName[j].getBytes("iso8859-1"),"utf-8");
+				} catch (UnsupportedEncodingException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+//				System.out.println(cellName[j]);
+				me[j] = myRecordMap.get(cellName[j].trim().toUpperCase());
+				//cellMap.put("cell",myRecordMap.get(cellName[j].toUpperCase()));
+			}
+
+			cellMap.put(sortname, myRecordMap.get(sortname.toUpperCase()).toString());
+			
+			cellMap.put("cell",me);
+			
+			mapList.add(cellMap);
+		}
+		pageInfo.put("rows", mapList);
+		 
+		
+		JSONObject object = new JSONObject(pageInfo);
+		
+//		System.out.println("object="+object.toString());
+		return object.toString();
+	}
+
+	
+	
+}

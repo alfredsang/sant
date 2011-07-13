@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+        <title>Listen</title>
+        <script type="text/javascript" src="jquery/jquery-1.2.2.min.js"></script>
+        <script type="text/javascript">
+        /* <![CDATA[ */
+   
+
+   function listen(last_modified, etag) {
+       $.ajax({
+           url: '/flexigrid-jar/comet',
+           dataType: 'text',
+           type: 'get',
+           cache: 'false',
+           success: function(data, textStatus, xhr) {
+ 
+               
+               div = $('<div class="msg">').text(data);
+
+               $('#data').prepend(div);
+
+               /* Start the next long poll. */
+               listen(last_modified, etag);
+           },
+           error: function(xhr, textStatus, errorThrown) {
+               $('#data').prepend(textStatus + ' | ' + errorThrown);
+           }
+       });
+   };
+
+   $(function() {
+	   alert("d");
+       /* Start the first long poll. */
+       /* setTimeout is required to let the browser know
+          the page is finished loading. */
+       setTimeout(function() {
+           listen('Thu, 1 Jan 1970 00:00:00 GMT', '0');
+       }, 1);
+   });
+        /* ]]> */
+        </script>
+        <style type="text/css">
+            #data {
+                margin: .5em;
+            }
+
+            #data .info {
+                font-weight: bold;
+                font-size: 14px;
+            }
+
+            #data .msg {
+                white-space: pre;
+                font-family: courier;
+                font-size: 14px;
+                margin-bottom: .5em;
+                margin-left: .5em;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="data"></div>
+    </body>
+</html>

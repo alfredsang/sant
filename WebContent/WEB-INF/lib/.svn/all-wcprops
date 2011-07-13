@@ -1,0 +1,197 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/nmdss/!svn/ver/25/branches/nmdss2.0/WebContent/WEB-INF/lib
+END
+jfreechart-1.0.9-experimental.jar
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/nmdss/!svn/ver/25/branches/nmdss2.0/WebContent/WEB-INF/lib/jfreechart-1.0.9-experimental.jar
+END
+jdbc2_0-stdext.jar
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/nmdss/!svn/ver/25/branches/nmdss2.0/WebContent/WEB-INF/lib/jdbc2_0-stdext.jar
+END
+gnujaxp.jar
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/nmdss/!svn/ver/25/branches/nmdss2.0/WebContent/WEB-INF/lib/gnujaxp.jar
+END
+log4j.jar
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/nmdss/!svn/ver/25/branches/nmdss2.0/WebContent/WEB-INF/lib/log4j.jar
+END
+jcommon-1.0.12.jar
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/nmdss/!svn/ver/25/branches/nmdss2.0/WebContent/WEB-INF/lib/jcommon-1.0.12.jar
+END
+jfreechart-1.0.9.jar
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/nmdss/!svn/ver/25/branches/nmdss2.0/WebContent/WEB-INF/lib/jfreechart-1.0.9.jar
+END
+commons-digester-1.8.jar
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/nmdss/!svn/ver/25/branches/nmdss2.0/WebContent/WEB-INF/lib/commons-digester-1.8.jar
+END
+swtgraphics2d.jar
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/nmdss/!svn/ver/25/branches/nmdss2.0/WebContent/WEB-INF/lib/swtgraphics2d.jar
+END
+servlet.jar
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/nmdss/!svn/ver/25/branches/nmdss2.0/WebContent/WEB-INF/lib/servlet.jar
+END
+log4j-1.2.9.jar
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/nmdss/!svn/ver/25/branches/nmdss2.0/WebContent/WEB-INF/lib/log4j-1.2.9.jar
+END
+commons-collections-2.1.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/nmdss/!svn/ver/25/branches/nmdss2.0/WebContent/WEB-INF/lib/commons-collections-2.1.1.jar
+END
+commons-collections.jar
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/nmdss/!svn/ver/25/branches/nmdss2.0/WebContent/WEB-INF/lib/commons-collections.jar
+END
+db2jcc.jar
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/nmdss/!svn/ver/25/branches/nmdss2.0/WebContent/WEB-INF/lib/db2jcc.jar
+END
+jdom.jar
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/nmdss/!svn/ver/25/branches/nmdss2.0/WebContent/WEB-INF/lib/jdom.jar
+END
+commons-lang.jar
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/nmdss/!svn/ver/25/branches/nmdss2.0/WebContent/WEB-INF/lib/commons-lang.jar
+END
+jfreechart-1.0.9-swt.jar
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/nmdss/!svn/ver/25/branches/nmdss2.0/WebContent/WEB-INF/lib/jfreechart-1.0.9-swt.jar
+END
+commons-fileupload.jar
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/nmdss/!svn/ver/25/branches/nmdss2.0/WebContent/WEB-INF/lib/commons-fileupload.jar
+END
+commons-validator.jar
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/nmdss/!svn/ver/25/branches/nmdss2.0/WebContent/WEB-INF/lib/commons-validator.jar
+END
+jcommon-1.0.5.jar
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/nmdss/!svn/ver/25/branches/nmdss2.0/WebContent/WEB-INF/lib/jcommon-1.0.5.jar
+END
+json-lib-0.4.jar
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/nmdss/!svn/ver/25/branches/nmdss2.0/WebContent/WEB-INF/lib/json-lib-0.4.jar
+END
+hsqldb.jar
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/nmdss/!svn/ver/25/branches/nmdss2.0/WebContent/WEB-INF/lib/hsqldb.jar
+END
+dom4j-1.6.jar
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/nmdss/!svn/ver/25/branches/nmdss2.0/WebContent/WEB-INF/lib/dom4j-1.6.jar
+END
+commons-discovery.jar
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/nmdss/!svn/ver/25/branches/nmdss2.0/WebContent/WEB-INF/lib/commons-discovery.jar
+END
+db2jcc_license_cu.jar
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/nmdss/!svn/ver/25/branches/nmdss2.0/WebContent/WEB-INF/lib/db2jcc_license_cu.jar
+END
+junit.jar
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/nmdss/!svn/ver/25/branches/nmdss2.0/WebContent/WEB-INF/lib/junit.jar
+END
+CrystalQueryEngine.jar
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/nmdss/!svn/ver/25/branches/nmdss2.0/WebContent/WEB-INF/lib/CrystalQueryEngine.jar
+END
+commons-logging-1.0.4.jar
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/nmdss/!svn/ver/25/branches/nmdss2.0/WebContent/WEB-INF/lib/commons-logging-1.0.4.jar
+END
+itext-2.0.6.jar
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/nmdss/!svn/ver/25/branches/nmdss2.0/WebContent/WEB-INF/lib/itext-2.0.6.jar
+END
+commons-beanutils.jar
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/nmdss/!svn/ver/25/branches/nmdss2.0/WebContent/WEB-INF/lib/commons-beanutils.jar
+END
+commons-logging.jar
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/nmdss/!svn/ver/25/branches/nmdss2.0/WebContent/WEB-INF/lib/commons-logging.jar
+END
+classes12.jar
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/nmdss/!svn/ver/25/branches/nmdss2.0/WebContent/WEB-INF/lib/classes12.jar
+END
+CrystalReportEngine.jar
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/nmdss/!svn/ver/25/branches/nmdss2.0/WebContent/WEB-INF/lib/CrystalReportEngine.jar
+END

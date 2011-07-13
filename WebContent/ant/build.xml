@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<project name= "testproject" default= "test" basedir= "." >
+     <target name= "test" >
+           <echo messageh= "Hello ${name}" />
+     </target>
+	 <target name= "test1" >
+	           <echo message= "Hello ${name} 322323" />
+	 	       <sleep seconds="2"/>
+	     </target>
+</project>

@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>ErlyComet jquery demo</title>
+	<link rel="stylesheet" href="/styles.css" type="text/css" media="screen">
+    <script type="text/javascript" src="/jquery/jquery-1.2.2.min.js"></script>
+    <script type="text/javascript" src="/jquery/json.js"></script>
+    <script type="text/javascript" src="/jquery/jquery.comet.js"></script>
+    <script type="text/javascript">
+      function timeCallback(msg) {
+        $("#counter_output").text(msg.data);
+      };
+      function msgCallback(msg) {
+        $("#echo_output").text(msg.data);
+      };
+      function sendMessage() {
+        $.comet.publish("/test/msg",$("#echo_input").val());
+      };
+      $(document).ready(function() {
+        $.comet.init("/cometd");
+        $.comet.subscribe("/test/msg", msgCallback);
+      });
+    </script>
+    <title>Hello</title>
+  </head>
+  <body>	
+	<h2>ErlyComet simple demos (<a href="http://plugins.jquery.com/project/Comet">jquery Comet plugin</a>)</h2>
+
+	<h3>1. Super simple echo test - subscribe to own messages</h3>
+	<div class="container">
+   		<div id="echo_output" class="output" style="height:3ex"></div>
+   		<div class="input">
+    		<div>
+    			Input:
+				<input id="echo_input" type="text">
+				<input class="button" type="submit" onclick="javascript:sendMessage();" value="publish"/>
+    		</div>
+    	</div>
+   	</div>
+
+	<h3>2. Epoch-time-mod-1000 counter</h3>
+	<div class="container">
+   		<div id="counter_output" class="output" style="height:3ex"></div>
+   		<div class="input">
+    		<div>
+       			Server side implemented counter:&nbsp;
+				<a href='javascript:$.comet.subscribe("/test/time", timeCallback);'>Subscribe</a>
+			    <a href='javascript:$.comet.unsubscribe("/test/time");'>Unsubscribe</a>
+     		</div>
+    	</div>
+   	</div>		
+
+	<p>
+		For a demo with the dojo Comet library <a href="/">click here</a> or
+		try <a href="/sketch.html">collaborative drawing</a>
+	</p>
+  </body>
+</html>

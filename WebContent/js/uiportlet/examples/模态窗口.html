@@ -1,0 +1,56 @@
+	<link href="resource/dialog/dialog.css" rel="stylesheet" type="text/css"  media="screen" /> 
+	<link href="resource/portlet/portlet.css" rel="stylesheet" type="text/css"  media="screen" />
+	<script type="text/javascript" src="../lib/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="../lib/jqDnR.js"></script> 
+	<script type="text/javascript" src="../lib/jqModal.js"></script> 
+
+<a href="#" id="ex3aTrigger" onclick='aa()'>view</a> (dialog)<br>
+  <select><option>sssddddddddddddd</option></select>
+  
+  		<div class="portlet" id="test_portlet1"  style='display:none;'>
+				<!-- portlet窗体头部信息 -->
+					<div class="portlet-topper">
+						<span class="portlet-title jqDrag" id="test_portlet1_title">
+							标题--1
+						</span> 
+						<div class="portlet-icons">
+							<div class="portlet_icon_div portlet_icon_close jqmClose" id="test_close"  onclick="divshow('test_portlet1')"></div>
+							<div class="portlet_icon_div portlet_icon_config"></div>
+							<div class="portlet_icon_div portlet_icon_option"></div>
+							
+							<div class="portlet_icon_div portlet_icon_min" onclick="divshow('div1');"></div>
+						</div>
+						 
+					</div>
+				
+					<!-- portlet窗体内容 -->
+					<div class="portlet-content" id="div1">
+					 dddddddd<br>
+					 dsfsdfsdf<br>
+					 dsfsdfsdf
+					</div>
+				</div>
+		
+<hr>TODO:<br>
+<li>模态居中</li>
+<style type="text/css">
+div.jqmDialog {
+  display: none;  
+    position: fixed;
+    top: 1%;
+    left: 2%;
+  margin-left: -2px;
+  width: 400px;
+  overflow: hidden;
+  font-family:verdana,tahoma,helvetica;
+}
+</style>
+
+<script>
+ 
+  $('#test_portlet1').addClass('jqmDialog').jqm({
+    trigger: '#ex3aTrigger',
+    overlay: 30, /* 0-100 (int) : 0 is off/transparent, 100 is opaque */
+  }).jqDrag('.jqDrag'); /* make dialog draggable, assign handle to title */
+   
+</script>
