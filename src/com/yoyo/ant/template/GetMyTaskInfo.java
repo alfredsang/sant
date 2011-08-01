@@ -4,16 +4,27 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 
+import javax.sql.DataSource;
+
+import org.apache.commons.dbcp.BasicDataSource;
 import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.DefaultLogger;
 import org.apache.tools.ant.Project;
 import org.apache.tools.ant.ProjectHelper;
+import org.nutz.dao.Dao;
+import org.nutz.dao.impl.NutDao;
+import org.nutz.ioc.Ioc;
+import org.nutz.ioc.impl.NutIoc;
+import org.nutz.ioc.loader.json.JsonLoader;
+
+import com.no320.model.nutz.AntTaskInfo;
 
 public class GetMyTaskInfo {
 
@@ -55,7 +66,13 @@ public class GetMyTaskInfo {
 		consoleLogger.setOutputPrintStream(System.out);
 		consoleLogger.setMessageOutputLevel(Project.MSG_INFO);
 		p.addBuildListener(consoleLogger);
-
+//
+//		 Ioc ioc  = new NutIoc(new JsonLoader("ioc/dao.js"));
+//    	 DataSource dataSource = ioc.get(BasicDataSource.class, "dataSource");
+//    	 
+//    	 Dao dao = new NutDao(dataSource);
+// 
+		
 		try {
 			p.fireBuildStarted();
 			// ÂàùÂßãÂåñËØ•È°πÁõÆ
@@ -64,17 +81,36 @@ public class GetMyTaskInfo {
 			// Ëß£ÊûêÈ°πÁõÆÁöÑÊûÑÂª∫Êñá‰ª∂
 			// helper.parse(p, buildFile);
 
+			//p.getTaskDefinitions().
 			Iterator tasks = p.getTaskDefinitions().keySet().iterator();
 			while (tasks.hasNext()) {
 				String tName = (String) tasks.next();
 				taskNamesList.add(tName);
+				
+				 
+//				AntTaskInfo ati = new AntTaskInfo();
+//				ati.setName(tName);
+//				ati.setDesc("desc="+tName);
+//				
+//				 dao.insert(ati);
+				
 			}
 			p.fireBuildFinished(null);
 
 		} catch (BuildException be) {
 			p.fireBuildFinished(be);
 		}
-
+		
+		Object t[] =taskNamesList.toArray();
+		Arrays.sort(t);
+		 
+		
+		taskNamesList = new ArrayList();
+		
+		for (int i = 0; i < t.length; i++) {
+			taskNamesList.add(t[i]);
+		}
+		
 		return taskNamesList;
 	}
 
@@ -292,9 +328,16 @@ public class GetMyTaskInfo {
 
 		String dir = t.getClass().getResource("/").getPath().toString()
 		+ "build.xml";
-		List l= t.getTargetsNameByBuild(dir);
+		List l=t.getTaskNamesList();
+			//t.getTargetsNameByBuild(dir);
 		
+		int columnCount=3;
 		 for (int i = 0; i < l.size(); i++) {
+			 
+			 if (i%3==0) {
+				System.out.println("**************************************");
+			}
+			 
 			 System.out.println(l.get(i));
 		 }
 		

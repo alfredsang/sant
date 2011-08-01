@@ -38,7 +38,7 @@ body{
 }
 
 /* drag container*/
-#drag{
+#target_config_p2_drag{
 	margin: auto;
 	width: 90%;
 	display: table;
@@ -52,7 +52,9 @@ body{
 			border-bottom: 1px solid white;
 		}
 			#left {
-				width: 60px;
+				width: 18%;
+				overflow: auto;
+			    position: relative;
 			}
 		/* container for the right table */
 		#right{
@@ -65,12 +67,12 @@ body{
 
 
 /* tables general */
-div#drag table{
+div#target_config_p2_drag table{
 	background-color: #eee;
 	border-collapse: collapse;
 }
 	/* table cells */
-	div#drag td{
+	div#target_config_p2_drag td{
 		height: 22px;
 		border: 1px solid white;
 		/* needed for FF3/FF4 because highlighting left table cell was working strange */

@@ -5,13 +5,9 @@ http://www.redips.net/
 May, 2011.
 
 */
-
-body {
-	font-family: arial;
-}
-
+ 
 /* drag container*/
-#drag {
+#target_config_p2_drag {
 	width:100%;
 }
 

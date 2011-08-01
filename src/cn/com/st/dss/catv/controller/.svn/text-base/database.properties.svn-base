@@ -1,9 +1,0 @@
-####################################
-# Database Connectivity Properties
-####################################
-
-driver=oracle.jdbc.driver.OracleDriver
-url=jdbc:oracle:thin:@192.168.221.14:1521:rptdb
-username=papp
-password=papp
-

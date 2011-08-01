@@ -60,6 +60,7 @@ public class MyCommonFlexiGrid extends FlexiGridHsqldbTemplete  {
 		
 		pageInfo.put("rows", mapList);
 		JSONObject object = new JSONObject(pageInfo);
+		System.out.println(object.toString());
 		return object.toString();
 	}
 

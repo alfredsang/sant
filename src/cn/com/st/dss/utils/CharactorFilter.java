@@ -1,6 +1,8 @@
 package cn.com.st.dss.utils;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -9,6 +11,8 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.yoyo.ant.template.GetMyTaskInfo;
 
 /**
  * Servlet Filter implementation class CharactorFilter
@@ -42,6 +46,13 @@ public class CharactorFilter implements Filter {
 		
 //		request2.setCharacterEncoding("gbk");
 //		response2.setCharacterEncoding("gbk");
+		
+		if(request2.getSession().getAttribute("antTastNames")!=null){
+			List l=new GetMyTaskInfo().getTaskNamesList();
+			//
+			request2.getSession().setAttribute("antTastNames", l);
+			System.out.println("init ant task names here ok");
+		}
 		
 		chain.doFilter(request, response);
 	}

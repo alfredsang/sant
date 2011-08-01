@@ -10,7 +10,7 @@ var hover1 = '#9BB3DA',				// hover color for original elements
 	width = '80%',				// width of DIV element dropped to the right table
 	left = 'left',					// id of left DIV container
 	right = 'right',				// id of right DIV container
-	content_url = 'get-content.php',// get-content URL
+	content_url = 'getTargetInfoById.jsp',// get-content URL
 	// global parameters
 	request,						// XMLHttp request object
 	hover_div,						// reference to the hover_div object
@@ -29,7 +29,7 @@ var hover1 = '#9BB3DA',				// hover color for original elements
 	
 	
 // initialization
-window.onload = function () {
+function init1() {
 	// reference to the REDIPS.drag class
 	var rd = REDIPS.drag;
 	// set reference to the hover_div
@@ -45,7 +45,7 @@ window.onload = function () {
 	// set fixed position for the left container
 	document.getElementById(left).style.position = 'fixed';
 	// initialization
-	rd.init();
+	rd.init('target_config_p2_drag');
 	// drop option is switch - content can be exchanged
 	rd.drop_option = 'switch';
 	// in a moment when dragging starts, remove mouseover event and hide hover tooltip
@@ -239,7 +239,7 @@ set_events = function () {
 	var regex_drag = /\bdrag\b/i,	// regular expression to search "drag" class name
 		div, i;
 	// collect all div elements inside DIV id="drag"
-	div = document.getElementById('drag').getElementsByTagName('div');
+	div = document.getElementById('target_config_p2_drag').getElementsByTagName('div');
 	for (i = 0; i < div.length; i++) {
 		// only DIV elements that contains "drag" in class name
 		if (regex_drag.test(div[i].className)) {
@@ -278,3 +278,39 @@ single_content = function () {
 		cell[i].className = 'single';
 	}
 };
+
+
+//toggles trash_ask parameter defined at the top
+function toggle_confirm(chk) {
+	REDIPS.drag.trash_ask = chk.checked;
+}
+
+//toggles delete_cloned parameter defined at the top
+function toggle_delete_cloned(chk) {
+	REDIPS.drag.delete_cloned = chk.checked;
+}
+
+//enables / disables dragging
+function toggle_dragging(chk) {
+	REDIPS.drag.enable_drag(chk.checked);
+}
+
+//function sets drop_option parameter defined at the top
+function set_drop_option(radio_button) {
+	REDIPS.drag.drop_option = radio_button.value;
+}
+
+//show prepared content for saving
+function save() {
+	// scan first table
+	var content = REDIPS.drag.save_content(0);
+	// if content doesn't exist
+	if (content === '') {
+		alert('Table is empty!');
+	}
+	// display query string
+	else {
+		//window.open('/my/multiple-parameters.php?' + content, 'Mypop', 'width=350,height=160,scrollbars=yes');
+		window.open('multiple-parameters.php?' + content, 'Mypop', 'width=350,height=260,scrollbars=yes');
+	}
+}

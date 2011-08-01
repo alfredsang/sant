@@ -1,0 +1,15 @@
+说明文件
+
+Target分类
+1、原始task，双击设置task属性信息，
+2、task模板。即（1）中操作之后，保存，即为模板
+
+
+
+系统初始化的时候：
+1）把目前ant所有的task放到一个共享内存中,在filter里设置了
+2）如果想重新更新ant所有的task值，访问GetAntTaskNames的servlet
+
+
+
+

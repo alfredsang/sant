@@ -72,6 +72,8 @@ $(function(){
 </script>
 </head>
 <body>
-<div id="ptable" style="margin:10px"></div>
+<div id="ptable" style="margin:10px">
+sss
+</div>
 </body>
 </html>

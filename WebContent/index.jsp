@@ -1,11 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=gbk"
-    pageEncoding="gbk"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=gbk">
-<title>示例中心</title>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 
+
+<script type="text/javascript"
+	src="<%=request.getContextPath()%>/js/jquery-1.6.2.min.js"></script>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>绀轰緥涓績</title>
+<script type="text/javascript">
+$.getJSON('<%=request.getContextPath()%>/GetAntTaskNames', {},function(data) {
+	alert(data[0]);
+}); 
+
+
+</script>
 </head>
 <body> 
 
