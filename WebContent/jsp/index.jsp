@@ -36,6 +36,11 @@
 			//alert($(this).html());
 		});
 		
+	
+		$("#btn").click(function(){
+			$("#testtr").hide();
+		});
+		
 	});	
 
 </script>
@@ -43,7 +48,6 @@
  
 	</head>
 	<body onload="REDIPS.drag.init('index_drag')">
-		 
 			<h2>控制面板</h2>
 		<hr>
 		<br><br> 
@@ -85,7 +89,7 @@
 							
 							<td><div class="drag drag_index"  url="jsp/target_config1.jsp">配置target1</div></td>
 						</tr>
-						<tr>
+						<tr id='testtr'>
 							<td></td>
 							<td></td>
 							<td></td>

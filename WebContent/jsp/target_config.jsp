@@ -3,8 +3,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 		
-		
+<style type="text/css"> 
+　　 a{ text-decoration:none;color: red}  
+　　 a:link { text-decoration: none;color: blue} 
+　　 a:active { text-decoration:blink} 
+　　 a:hover { text-decoration:underline;color: red}  
+　　 a:visited { text-decoration: none;color: green} 
+　　 
+</style>		
 <script type="text/javascript">
+var mydata;
 
 //alert('dddd');
 $(function(){
@@ -37,7 +45,7 @@ $(function(){
 	});	
 	
 	
-	var mydata;
+	
 	$.getJSON('<%=request.getContextPath()%>/GetAntTaskNames', {},function(data) {
 		//alert(data.length);
 		var columnCount = 4;
@@ -98,8 +106,8 @@ $(function(){
 		var sb = [];
 		sb.push("<tr><td colspan='4'>");
 		
-		for(var i =1;i<=pageSize;i++){
-			sb.push("<div  style='float:right;'><a name='page' href='#' onclick='pageNumberClick("+i+")'; >"+i+"</a>-</div>");	 
+		for(var i =pageSize;i>=1;i--){
+			sb.push("<div  style='float:right;'><a id='target_config_a_href_"+i+"' name='page' href='#' onclick='pageNumberClick("+i+")'; >"+i+"</a>-</div>");	 
 		}
 		sb.push("</td></tr>");
 		return sb.join('');
@@ -116,14 +124,14 @@ $(function(){
 			sb.push("");	
 			
 			 if(i%columnCount==0){
-				 sb.push("<tr class='target_cfg_my_tr_"+parseInt(i/40)+"' style='display:"+display+";'>");
+				 sb.push("<tr id='target_cfg_my_tr_"+parseInt(i)+"' style='display:"+display+";'>");
 			 }
 			 
 			 if(mydata[i].length<=5){
-				 sb.push("<td><div id='"+mydata[i]+"' class='drag'>"+mydata[i]+"</div></td>");	 
+				 sb.push("<td><div id='"+mydata[i]+"' class='drag clone'>"+mydata[i]+"</div></td>");	 
 			 }else{
 				 var content = mydata[i].substr(0,4);
-				 sb.push("<td><div id='"+mydata[i]+"' class='drag'>"+content+"..</div></td>");
+				 sb.push("<td><div id='"+mydata[i]+"' class='drag clone'>"+content+"..</div></td>");
 			 }
 			 
 			 //alert(mydata[i]);
@@ -137,14 +145,69 @@ $(function(){
 		return sb.join('');
 	}
 		
+	//绑定事件
+	$("#right  td").click(function(){
+		
+		var a = $(this).find("div eq 2");
+		
+		$(this).find("div").each(function(index){
+			
+			if(index==1){
+				alert(index + ': ' + $(this).text());
+			}
+			
+		});
+		//alert(a.html());
+	});
 });
 
 function pageNumberClick(pageNo){
 	//alert($(".target_cfg_my_tr_"+(parseInt(pageNo)-1)).html());
-	$(".^target_cfg_my_tr_").closest("tr").hide();
-	$(".target_cfg_my_tr_"+(parseInt(pageNo)-1)).closest("tr").hide();
+	
+	//$("#^target_cfg_my_tr_").closest("tr").hide();
+	//$(".target_cfg_my_tr_"+(parseInt(pageNo)-1)).closest("tr").hide();
+	
+	var varCurrent = pageNo;
+	var pageSize = 40;
+	var start =(varCurrent-1)*pageSize;
+	var end = (varCurrent)*pageSize-1;
+	
+	//alert(start,end);
+	
+	pageNumberClick_hide(start,end);
+	
+	
+	$("#target_config_a_href_"+pageNo).css({'text-decoration': 'none','color': 'green'});
 }
 
+function pageNumberClick_hide( begin,end){
+	var columnCount =4;
+	
+	
+	//alert(start+"--"+end);
+	for(var i = 0;i<=mydata.length;i++){
+		//alert("#target_cfg_my_tr_"+parseInt(i/columnCount) );
+		
+		if(i%columnCount==0){
+			//alert(i );
+			$("#target_cfg_my_tr_"+parseInt(i)).hide();
+			
+		}
+		
+	}
+	
+	//alert(start+"--"+end);
+	for(var i = begin;i<=end;i++){
+		//alert("#target_cfg_my_tr_"+parseInt(i/columnCount) );
+		
+		if(i%columnCount==0){
+			//alert(i );
+			$("#target_cfg_my_tr_"+parseInt(i)).show();
+			
+		}
+		
+	}
+}
 	
 </script>
 
