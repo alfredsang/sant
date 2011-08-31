@@ -1,0 +1,21 @@
+task模板
+
+tt_id   |    tt_name
+
+
+
+
+tast模板内容
+tt_id   |    tt_field_name   |    tt_field_type
+
+
+tt_field_type
+1－－－－－int
+2－－－－－String
+3－－－－－Class
+
+文本框
+路径选择
+下拉列表
+
+

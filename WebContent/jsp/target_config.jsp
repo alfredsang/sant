@@ -99,6 +99,8 @@ $(function(){
 		$('#table1').append(pager);
 		//pageNumberClick(5);
 		
+		
+		$('#sant-t').poshytip();
 		 
 	}); 
 	
@@ -153,12 +155,70 @@ $(function(){
 		$(this).find("div").each(function(index){
 			
 			if(index==1){
-				alert(index + ': ' + $(this).text());
+				//alert(index + ': ' + $(this).text());
+				var taskName = $(this).text();
+
+				//根据返回信息，拼成表单
+				$.getJSON('<%=request.getContextPath()%>/GetAntTaskNames', {},function(data) {
+					//alert(data.length);
+					
+					$("#target_sant_ant_task_title").html(taskName+"-TASK SETTING FORM");
+					showPage("target_config_p3");
+				});
+				
+				
 			}
 			
 		});
 		//alert(a.html());
 	});
+	
+	
+	 $("#testtab4").tab({
+			tabId:"#tabtag4",
+			tabTag:"li",
+			conId:"#tabcon4",
+			conTag:"div",
+			effact: "slow"
+			})	; 
+	 
+	/*   $("#tab").tab({
+	        //dft:0,  // 起始显示项,默认为第一项
+	        //auto:true,  // 自动切换,默认为关闭
+	        //act:"mouseover",  // 鼠标划过,默认为单击
+	        //effact:" scrollx",  // 横向滚动效果,纵向滚动为 scrolly
+	        effact:"slow",  // "slow" 效果
+	        tabId: ".tags",  // 切换控制器
+	        tabTag: "li",  // 切换控制器标签
+	        conId: ".panes",  // 内容容器
+	        conTag: ".pane"  // 内容容器标签
+	    }) */
+	    
+	    $("#target_sant_ant_task_info_form_btn_return").click(function(){
+	    	showPage("target_config_p2");
+	    });
+	
+	
+	    $("#target_sant_ant_task_info_form_btn_create").click(function(){
+	    	showPage("target_config_p4");
+	    });
+	    
+	   
+	    
+	    $("#target_config_p4_btn_return").click(function(){
+	    	showPage("target_config_p3");
+	    });
+	    
+	    $('#demo-manual-trigger').poshytip({
+	    	content: 'Hey, there! This is a tooltip.',
+	    	showOn: 'none',
+	    	alignTo: 'target',
+	    	alignX: 'inner-left',
+	    	offsetX: 0,
+	    	offsetY: 5
+	    });
+	    
+	    
 });
 
 function pageNumberClick(pageNo){
@@ -210,6 +270,29 @@ function pageNumberClick_hide( begin,end){
 }
 	
 </script>
+
+
+<style type="text/css">
+body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,table,td,th,form,fieldset,img,dl,dt,dd{margin:0px;padding:0px; font-family:Arial, Helvetica, sans-serif;}
+ 
+img{ border:none;}
+li{ list-style:none;}
+ 
+.cont{ background:#080808; padding:8px; width:840px;  margin:0 auto;}
+.main{  background:#eee; padding:6px;}
+h2{ font-size:16px; font-family:"黑体"; color:#35679a;; padding:4px 10px; margin:10px 0 16px; font-weight:100; border-bottom:2px solid #ccc;}
+h3{ padding-left:50px; font-size:16px; color:#555;}
+.testtab{ border:4px solid  #ccc; margin:1px 1px; }
+.tabtag{ line-height:24px; height:24px; border-bottom:2px solid #ccc;}
+.tabtag li{ float:left; width:24%; text-align:center; background:#eee;}
+.tabtag li.cur{ color:#900; background:#fff;}
+.tabcon{ height:80%; overflow:auto;}
+.tabcon div{ padding:10px; color:#900; font-size:14px;}
+.tabcon li{ line-height:22px;}
+pre{ color:#444;}
+pre strong{ font-weight:900;}
+</style>
+
 
 <style>
 
@@ -307,11 +390,11 @@ function pageNumberClick_hide( begin,end){
 							<tr>
 								<td colspan="4">
 									<div id="ns0.9" >
-										<div>
-											target category
-											<select id="target_config_select_target_category">
-												<option value="default">default</option>
-												<option value="customize">customize</option>
+										<div style="float: left">
+										 category
+											<input  type="radio">default
+												
+												<input  type="radio">customize 
 											</select>
 										</div>
 									</div>
@@ -440,8 +523,112 @@ function pageNumberClick_hide( begin,end){
  <!-- default part -->
  <div class="santpage" id="target_config_p3">
     
- 	
-
+ 	<div id='target_sant_ant_task_info_form' style='padding: 10px; background: #fff;'>
+			<p>
+				<strong><span  id='target_sant_ant_task_title'></span>.</strong>
+			</p>
+			<hr>
+		  <p>
+		   <div id="targetIcon"  style="float: right;border-color:#000; border-style:solid; border-width:1px;">
+				<input type="button" class="targetIcon" id="target_sant_ant_task_info_form_btn_create" name="0" value="创建模板">
+				<input type="button" class="targetIcon"  id="target_sant_ant_task_info_form_btn_return"  name="2" value="返回">
+			</div>
+		   </p>
+		 
+		 <br>
+				
+		 
+	    	<div id="current_task_info" style="width: 100%;">
+		    	显示当前task配置信息
+		   
+		   
+		  
+		   
+		    <div class="testtab" id="testtab4">
+		    	<div id="tabtag4" class="tabtag" style="position:relative;">
+		        	<ul>
+		            	<li class="cur">已有模板</li>
+		            	<li>Ant task 信息</li>
+		                <li>生成xml源码</li> 
+		                
+		            </ul>
+		        </div>
+		        <div id="tabcon4" class="tabcon">
+		        	<div>
+		            	哈哈<br>已有模板如下<br>
+		            	
+		            	
+		            </div>
+		        	<div>
+		            	哈哈<br>哈哈<br>哈哈<br>哈哈<br>哈哈<br>哈哈<br>哈哈<br>哈哈<br>哈哈<br>哈哈<br>哈哈<br>哈哈<br>哈哈<br>哈哈<br>哈哈<br>哈哈<br>哈哈<br>哈哈<br>哈哈<br>哈哈<br>哈哈<br>哈哈<br>哈哈<br>哈哈<br>哈哈<br>哈哈<br>哈哈<br>哈哈<br>哈哈<br>哈哈<br>哈哈<br>哈哈<br>哈哈<br>哈哈<br>哈哈<br>哈哈<br>哈哈<br>哈哈<br>哈哈<br>哈哈<br>
+		            </div>
+		            <div>
+		            	嘎嘎 
+		            </div>
+		         
+		        </div>
+		    </div>
+    
+    
+		    </div>
+	    
+	    
+	    	
+	 </div>
+			
+	<div style="clear: both;top: 82%;position: fixed;float: left">
+	    		<hr> 
+	    		<p>usage:点击task模范直接输入参数，如果没有模板或合适模板，可以自行创建 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> 
+	    		 
+	</div>
+ 						
+								
+  
+  
+ </div>
+ <!--end  part get_target_category-->  
+ 
+ 
+  <!-- create ant task template part -->
+ <div class="santpage" id="target_config_p4">
+    
+ 	<div id='target_sant_ant_task_info_form' style='padding: 10px; background: #fff;'>
+			<p>
+				<strong><span>create template for this task</span>.</strong>
+			</p>
+			<hr>
+		  <p>
+		   <div id="targetIcon"  style="float: right;border-color:#000; border-style:solid; border-width:1px;"> 
+				<input type="button" class="targetIcon"  id="target_config_p4_btn_return"  name="2" value="返回">
+			</div>
+		   </p>
+		 
+		 <br>
+				
+		 
+	    	<div id="current_task_info" style="width: 100%;">
+		    	显示当前task配置信息
+		  
+		  
+			  <p>
+				   first field <input title="Hey, there! This is a tooltip."  type="text" id='sant_t'> 
+			 </p>
+		   
+		  
+		    poshytip
+    
+    
+		    </div>
+	    
+	    
+	    	
+	 </div>
+			
+	<div style="clear: both;top: 82%;position: fixed;float: left">
+	    		<hr> 
+	    		<p>usage:点击task模范直接输入参数，如果没有模板或合适模板，可以自行创建 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> 
+	    		 
+	</div>
  						
 								
   

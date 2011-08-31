@@ -145,7 +145,7 @@ public class GetMyTaskInfo {
 					Class t = (Class) p.getTaskDefinitions().get(tName);
 
 					Field[] f = t.getDeclaredFields();
-
+				
 					System.out.println(tName + "{" + t.getName() + "}"
 							+ "  all declaredFields count is:" + f.length);
 					System.out
@@ -153,6 +153,8 @@ public class GetMyTaskInfo {
 					for (int i = 0; i < f.length; i++) {
 
 						String taskProperty = processWord(f[i].getName());
+						
+						System.out.println(f[i].getType()+"--type");
 						if (taskProperty.length() > 0) {
 							taskPropertiesList.add(taskProperty);
 						}
@@ -331,16 +333,21 @@ public class GetMyTaskInfo {
 		List l=t.getTaskNamesList();
 			//t.getTargetsNameByBuild(dir);
 		
-		int columnCount=3;
-		 for (int i = 0; i < l.size(); i++) {
-			 
-			 if (i%3==0) {
-				System.out.println("**************************************");
-			}
-			 
-			 System.out.println(l.get(i));
-		 }
+//		int columnCount=3;
+//		 for (int i = 0; i < l.size(); i++) {
+//			 
+//			 if (i%3==0) {
+//				System.out.println("**************************************");
+//			}
+//			 
+//			 System.out.println(l.get(i));
+//		 }
+		 
+		l = t.getTaskInfoByName("dirname");
 		
+		for (int i = 0; i < l.size(); i++) {
+			
+		}
 		
 //		Character ss = 'Z';
 //		// System.out.println((int) ss);

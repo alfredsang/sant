@@ -12,19 +12,17 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <filter>
-		<filter-name>nutz</filter-name>
-		<filter-class>org.nutz.mvc.NutFilter</filter-class>
-		<init-param>
-			<param-name>modules</param-name>
-			<param-value>com.no320.mvc.nutz.MainModule</param-value>
-		</init-param>
-	</filter>
-
-	<filter-mapping>
-		<filter-name>nutz</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
-	
+    <filter-name>nutz</filter-name>
+    <filter-class>org.nutz.mvc.NutFilter</filter-class>
+    <init-param>
+      <param-name>modules</param-name>
+      <param-value>com.no320.mvc.nutz.MainModule</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>nutz</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
   <filter>
     <display-name>CharactorFilter</display-name>
     <filter-name>CharactorFilter</filter-name>

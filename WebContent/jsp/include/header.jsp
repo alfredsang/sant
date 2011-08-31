@@ -11,6 +11,9 @@
 <script src="<%=request.getContextPath()%>/flexigrid/js/jquery.flexigrid.js" type="text/javascript" ></script>
 
  
+<script src="<%=request.getContextPath()%>/js/poshytip/jquery.poshytip.js" type="text/javascript" ></script>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/js/poshytip/tip-violet/tip-violet.css" type="text/css" />
+ 
 <link rel="stylesheet" href="<%=request.getContextPath()%>/js/redips/style-screen.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/js/redips/style-print.css" type="text/css" media="print" />
 
@@ -22,7 +25,10 @@
 
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/js/jquery-1.6.2.min.js"></script>
-	
+
+
+<script type="text/javascript"
+	src="<%=request.getContextPath()%>/js/jquery.tab.js"></script>	
  
 <script
 	src="<%=request.getContextPath()%>/js/colorbox/colorbox/jquery.colorbox.js"></script>
@@ -53,6 +59,8 @@ h2 {
 </style>
 
 <script type="text/javascript">
+
+//alert("sdfdsf"+50+0.5);
 /*
  * 
  */
@@ -81,5 +89,4 @@ function log(str){
 	$("#index_log_container_div").append(""+(new Date())+" : "+str+"<br>");
 }
 </script>
-		
-			
+		 
