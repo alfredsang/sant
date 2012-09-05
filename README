@@ -1,14 +1,22 @@
-说明文件
+# 说明文件
 
-Target分类
+## Target分类
 1、原始task，双击设置task属性信息，
 2、task模板。即（1）中操作之后，保存，即为模板
 
 
 
-系统初始化的时候：
+## 系统初始化的时候：
 1）把目前ant所有的task放到一个共享内存中,在filter里设置了
 2）如果想重新更新ant所有的task值，访问GetAntTaskNames的servlet
+
+## 系统说明
+
+1、系统必须支持servlet3.0 
+
+## 部署说明
+1、把apache-ant-1.8.4下的lib里的jar文件拷贝到apache-tomcat-7.0.29的lib下
+2、
 
 
 

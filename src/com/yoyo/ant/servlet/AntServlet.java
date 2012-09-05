@@ -2,10 +2,7 @@ package com.yoyo.ant.servlet;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 
@@ -15,13 +12,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.yoyo.ant.template.AntTargetTemplate;
-import com.yoyo.ant.template.GetMyTaskInfo;
-import com.yoyo.ant.template.SetExecuteTarget;
-import com.yoyo.ant.template.Test;
-import org.apache.tools.ant.*;
-import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+
+import com.yoyo.ant.template.SetExecuteTarget;
 
 /**
  * Servlet implementation class AntServlet
